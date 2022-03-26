@@ -3,15 +3,23 @@ import React from 'react';
 function App() {
     return (
         <div className="App">
+            <AppTitle/>
             <Rating/>
             <Accordion/>
+            <Rating/>
         </div>
     );
 }
 
+function AppTitle() {
+    return (
+        <>This is App title.</>
+    )
+}
+
 function Rating() {
     return (
-        <div className={'Rating'}>
+        <div>
             <Star/>
             <Star/>
             <Star/>
@@ -32,8 +40,24 @@ function Star() {
 function Accordion() {
     return (
         <div>
+            <AccordionTitle/>
+            <AccordionBody/>
+        </div>
+    )
+}
+
+function AccordionTitle() {
+    return(
+        <div>
+            <h3>Menu</h3>
+        </div>
+    )
+}
+
+function AccordionBody() {
+    return(
+        <div>
             <ul>
-                <h3>Menu</h3>
                 <li>1</li>
                 <li>2</li>
                 <li>3</li>
