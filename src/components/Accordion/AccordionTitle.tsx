@@ -1,6 +1,10 @@
 import React from "react";
 
-export function AccordionTitle(props:any) {
+type AccordionTitleType = {
+    title: string
+}
+
+export function AccordionTitle(props:AccordionTitleType) {
     return(
         <div>
             <h3>{props.title}</h3>
