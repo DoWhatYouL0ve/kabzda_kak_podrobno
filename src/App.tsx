@@ -2,6 +2,7 @@ import React from 'react';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {Accordion2} from "./components/Accordion/Accordion2";
+import {OnOff} from "./components/OnOff/OnOff";
 
 function App() {
     return (
@@ -19,6 +20,8 @@ function App() {
             <Rating value={5}/>
             <hr/>
             <Accordion2 title={'Refactored Accordion'} collapsed={false}/>
+            <hr/>
+            <OnOff />
         </div>
     );
 }
