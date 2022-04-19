@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {Accordion2} from "./components/Accordion/Accordion2";
@@ -6,29 +6,38 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
 import style from './appStyles.module.css'
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
+import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+
+export type RatingValueType = 0 | 1 | 2| 3 | 4 | 5
 
 function App() {
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [collapsed, setCollapsed] = useState<boolean>(true)
+    let [onOffValue, setOnOffValue] = useState<boolean>(false)
+
+    let collapsedStatus = () => {
+        setCollapsed(!collapsed)
+    }
+
     return (
         <div className={style.app}>
             <PageTitle title={'This is App title.'}/>
-            <Rating value={2}/>
-            <Accordion title={'Menu'} collapsed={false}/>
-            <Accordion title={'Menu collapsed'} collapsed={true}/>
-            <PageTitle title={'This is rating'}/>
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
+            <Accordion title={'Menu'} collapsedStateChanger={collapsedStatus} collapsed={collapsed}/>
+            {/*<Accordion title={'Menu collapsed'} collapsedStateChanger={collapsedStatus} collapsed={collapsed}/>*/}
             <hr/>
-            <Accordion2 title={'Refactored Accordion'} collapsed={false}/>
+            <PageTitle title={'This is rating'}/>
+            <Rating value={ratingValue} setRatingValue={setRatingValue}/>
+            <hr/>
+            {/*<Accordion2 title={'Refactored Accordion'} collapsed={collapsed} collapsedStateChanger={collapsedStatus}/>*/}
             <hr/>
             <OnOff />
             <hr/>
             <UncontrolledAccordion title={'Accordion using useState'}/>
             <hr/>
             <UncontrolledRating />
+            <hr/>
+            <UncontrolledOnOff value={onOffValue} setOnOffValue={setOnOffValue}/>
         </div>
     );
 }

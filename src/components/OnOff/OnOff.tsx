@@ -6,14 +6,11 @@ export const OnOff = () => {
 
     const [state, setState] = useState(true)
 
-    const changeState = () => {
-        setState(!state)
-    }
 
     return (
         <div>
-            <div className={`${state ? style.green : ''} ${style.buttonStyles}`} onClick={changeState}>On</div>
-            <div className={`${!state ? style.red : ''} ${style.buttonStyles}`} onClick={changeState}>Off</div>
+            <div className={`${state ? style.green : ''} ${style.buttonStyles}`} onClick={()=>setState(true)}>On</div>
+            <div className={`${!state ? style.red : ''} ${style.buttonStyles}`} onClick={()=>setState(false)}>Off</div>
             <div className={`${!state ? style.red : style.green} ${style.round}`}></div>
         </div>
     )

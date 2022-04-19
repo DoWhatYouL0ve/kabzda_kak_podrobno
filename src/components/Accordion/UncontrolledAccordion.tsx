@@ -13,19 +13,10 @@ export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => 
     const changeState = () => {
         setState(!state)
     }
-
-    if(!state) {
-        return (
-            <div>
-                <AccordionTitle title={props.title} onClickHandler={changeState}/>
-                <AccordionBody/>
-            </div>
-        )
-    }else {
-        return (
-            <div>
-                <AccordionTitle title={props.title} onClickHandler={changeState}/>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <AccordionTitle title={props.title} onClickHandler={changeState}/>
+            {!state && <AccordionBody/>}
+        </div>
+    )
 }

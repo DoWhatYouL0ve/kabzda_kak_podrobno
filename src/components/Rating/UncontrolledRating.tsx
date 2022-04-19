@@ -3,19 +3,16 @@ import {Star} from "./Star/Star";
 
 export function UncontrolledRating() {
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState<0|1|2|3|4|5>(0)
 
-    const onClickHandler = (num: number) => {
-        setValue(num)
-    }
 
     return(
         <div>
-            <Star selected={value > 0}/><button onClick={()=>{onClickHandler(1)}}>+</button>
-            <Star selected={value > 1}/><button onClick={()=>{onClickHandler(2)}}>+</button>
-            <Star selected={value > 2}/><button onClick={()=>{onClickHandler(3)}}>+</button>
-            <Star selected={value > 3}/><button onClick={()=>{onClickHandler(4)}}>+</button>
-            <Star selected={value > 4}/><button onClick={()=>{onClickHandler(5)}}>+</button>
+            <Star selected={value > 0} setValue={()=>setValue(1)}/>
+            <Star selected={value > 1} setValue={()=>setValue(2)}/>
+            <Star selected={value > 2} setValue={()=>setValue(3)}/>
+            <Star selected={value > 3} setValue={()=>setValue(4)}/>
+            <Star selected={value > 4} setValue={()=>setValue(5)}/>
         </div>
     )
 }
